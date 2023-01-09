@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>_AR_UI_Class</class>
+ <widget class="QMainWindow" name="_AR_UI_Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1920</width>
+    <height>1080</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1920</width>
+    <height>1080</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>监视标准设备套件</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="_AR_UI_BG">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1920</width>
+      <height>1080</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1920</width>
+      <height>1080</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1920</width>
+      <height>1080</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>这是背景</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_EXIT">
+    <property name="geometry">
+     <rect>
+      <x>1753</x>
+      <y>716</y>
+      <width>150</width>
+      <height>350</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>这是按钮</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_CON">
+    <property name="geometry">
+     <rect>
+      <x>1255</x>
+      <y>985</y>
+      <width>215</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Server: Build</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_SERC">
+    <property name="geometry">
+     <rect>
+      <x>1500</x>
+      <y>985</y>
+      <width>215</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Current: Server</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="_AR_UI_INFOVIEW">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>800</y>
+      <width>510</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_UI_LABEL_LOC_OF_INFO">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>800</y>
+      <width>511</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_IP_SELECT_">
+    <property name="geometry">
+     <rect>
+      <x>1420</x>
+      <y>805</y>
+      <width>290</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>192.168.0.120</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_PORT_SELECT_">
+    <property name="geometry">
+     <rect>
+      <x>1420</x>
+      <y>885</y>
+      <width>290</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>6666</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_UI_LABEL_LOC_OF_PORT_">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1420</x>
+      <y>885</y>
+      <width>290</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_UI_LABEL_LOC_OF_IP_">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1420</x>
+      <y>805</y>
+      <width>290</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_AR_UI_L_CON_">
+    <property name="geometry">
+     <rect>
+      <x>1495</x>
+      <y>980</y>
+      <width>225</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_AR_UI_L_FUNC_">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>980</y>
+      <width>225</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_UI_LABEL_CONFIG_AREA_">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1229</x>
+      <y>80</y>
+      <width>680</width>
+      <height>620</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="_AR_UI_SAMPLE_ADCNUM_">
+    <property name="geometry">
+     <rect>
+      <x>1405</x>
+      <y>155</y>
+      <width>75</width>
+      <height>55</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="_AR_UI_SAMPLE_CHIRPS_">
+    <property name="geometry">
+     <rect>
+      <x>1588</x>
+      <y>155</y>
+      <width>75</width>
+      <height>55</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="_AR_UI_SAMPLE_FRAMES_">
+    <property name="geometry">
+     <rect>
+      <x>1782</x>
+      <y>155</y>
+      <width>75</width>
+      <height>55</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_SAMPLE_RECORD_">
+    <property name="geometry">
+     <rect>
+      <x>1730</x>
+      <y>630</y>
+      <width>160</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="_AR_UI_SAMPLE_SAVEPATH_">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>640</y>
+      <width>460</width>
+      <height>40</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_SAMPLE_CHANGEPATH_">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>630</y>
+      <width>480</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_UI_LABEL_CURVE_AREA_">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>1100</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_TX1_ENABLE_">
+    <property name="geometry">
+     <rect>
+      <x>1325</x>
+      <y>100</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_TX2_ENABLE">
+    <property name="geometry">
+     <rect>
+      <x>1475</x>
+      <y>100</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_TX3_ENABLE">
+    <property name="geometry">
+     <rect>
+      <x>1625</x>
+      <y>100</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_AR_TX1_ENABLE_LABEL_">
+    <property name="geometry">
+     <rect>
+      <x>1325</x>
+      <y>100</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_AR_TX2_ENABLE_LABEL_">
+    <property name="geometry">
+     <rect>
+      <x>1475</x>
+      <y>100</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_AR_TX3_ENABLE_LABEL_">
+    <property name="geometry">
+     <rect>
+      <x>1625</x>
+      <y>100</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_CON_STATUS_">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>240</y>
+      <width>370</width>
+      <height>170</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_UI_CURV_BUTTON_">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>1160</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="_AR_UI_CURV_VIEW_">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>1170</width>
+      <height>620</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="_AR_TELE_ENABLE_">
+    <property name="geometry">
+     <rect>
+      <x>1635</x>
+      <y>290</y>
+      <width>240</width>
+      <height>110</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="_AR_TELE_ENABLE_LABEL_">
+    <property name="geometry">
+     <rect>
+      <x>1635</x>
+      <y>290</y>
+      <width>240</width>
+      <height>110</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <zorder>_AR_UI_BG</zorder>
+   <zorder>_AR_UI_EXIT</zorder>
+   <zorder>_AR_UI_INFOVIEW</zorder>
+   <zorder>_UI_LABEL_LOC_OF_INFO</zorder>
+   <zorder>_AR_UI_IP_SELECT_</zorder>
+   <zorder>_AR_UI_PORT_SELECT_</zorder>
+   <zorder>_UI_LABEL_LOC_OF_PORT_</zorder>
+   <zorder>_UI_LABEL_LOC_OF_IP_</zorder>
+   <zorder>_AR_UI_L_FUNC_</zorder>
+   <zorder>_AR_UI_L_CON_</zorder>
+   <zorder>_AR_UI_SERC</zorder>
+   <zorder>_AR_UI_CON</zorder>
+   <zorder>_UI_LABEL_CONFIG_AREA_</zorder>
+   <zorder>_AR_UI_SAMPLE_ADCNUM_</zorder>
+   <zorder>_AR_UI_SAMPLE_CHIRPS_</zorder>
+   <zorder>_AR_UI_SAMPLE_FRAMES_</zorder>
+   <zorder>_AR_UI_SAMPLE_RECORD_</zorder>
+   <zorder>_AR_UI_SAMPLE_SAVEPATH_</zorder>
+   <zorder>_AR_UI_SAMPLE_CHANGEPATH_</zorder>
+   <zorder>_UI_LABEL_CURVE_AREA_</zorder>
+   <zorder>_AR_TX1_ENABLE_LABEL_</zorder>
+   <zorder>_AR_TX2_ENABLE_LABEL_</zorder>
+   <zorder>_AR_TX3_ENABLE_LABEL_</zorder>
+   <zorder>_AR_TX3_ENABLE</zorder>
+   <zorder>_AR_TX2_ENABLE</zorder>
+   <zorder>_AR_TX1_ENABLE_</zorder>
+   <zorder>_AR_UI_CON_STATUS_</zorder>
+   <zorder>_AR_UI_CURV_VIEW_</zorder>
+   <zorder>_AR_UI_CURV_BUTTON_</zorder>
+   <zorder>_AR_TELE_ENABLE_LABEL_</zorder>
+   <zorder>_AR_TELE_ENABLE_</zorder>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="_AR_UI_.qrc"/>
+ </resources>
+ <connections/>
+</ui>

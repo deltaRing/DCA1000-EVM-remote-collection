@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="网络部分">
+      <UniqueIdentifier>{86987a26-b9f0-4ecc-bd2c-5a153aa30ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="编码解码部分">
+      <UniqueIdentifier>{27c31f4d-63d3-44d3-954a-51e085741fc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DCA1000通信部分">
+      <UniqueIdentifier>{0c4416a1-20a1-48d3-b9ed-46e4f734eacd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="数据结构部分">
+      <UniqueIdentifier>{dd89eb0a-65d9-476d-abf4-6c064c5769be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用定义">
+      <UniqueIdentifier>{435e8f8a-cbd9-4429-b818-bd50e1158d2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Info提示部分">
+      <UniqueIdentifier>{aeeb9d7d-e69d-41a7-98c5-e38e38e6dd86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="页面部分">
+      <UniqueIdentifier>{1eb952af-9ce0-41d8-b1a4-6b071545160e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="页面部分\IP设置">
+      <UniqueIdentifier>{57eebe65-f847-403d-9a26-734be25d6636}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="_AR_UI_.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="_AR_UI_.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="_AR_UI_.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="_AR_UI_.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_AR_ADDONs_\IPSetWidget.cpp">
+      <Filter>页面部分\IP设置</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="_AR_utility_\linked_list.h">
+      <Filter>数据结构部分</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\TCP_define.h">
+      <Filter>通用定义</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\TCP_packet_define.h">
+      <Filter>通用定义</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\TCP_function_define.h">
+      <Filter>通用定义</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\_AR_actor_define_.h">
+      <Filter>通用定义</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_include_\_AR_UI_INFO_SUBSYSTEM_.h">
+      <Filter>Info提示部分</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_utility_\server_list.h">
+      <Filter>数据结构部分</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_decode\_wave_AR_decode_.h">
+      <Filter>编码解码部分</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\_net_work_define_.h">
+      <Filter>通用定义</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\_AR_UI_define_.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_decode\a_coder_define.h">
+      <Filter>编码解码部分</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_decode\BitTree.h">
+      <Filter>编码解码部分</Filter>
+    </ClInclude>
+    <ClInclude Include="_AR_define_\TCP_compress_define.h">
+      <Filter>通用定义</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="_AR_include_\tcp_server_build.h">
+      <Filter>网络部分</Filter>
+    </QtMoc>
+    <QtMoc Include="_AR_include_\tcp_client_build.h">
+      <Filter>网络部分</Filter>
+    </QtMoc>
+    <QtMoc Include="_AR_Comm_\_AR_dca1000_rf_api.h">
+      <Filter>DCA1000通信部分</Filter>
+    </QtMoc>
+    <QtMoc Include="_AR_ADDONs_\IPSetWidget.h">
+      <Filter>页面部分\IP设置</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="_AR_ADDONs_\IPSetWidget.ui">
+      <Filter>页面部分\IP设置</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>
