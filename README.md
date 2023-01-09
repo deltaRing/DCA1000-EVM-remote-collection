@@ -13,3 +13,6 @@
 和TI雷達天綫板通信
 
 我所使用的是AWR1843AOPEVM 如果你使用其他雷達 請自行修改cfg文件與 _AR_UI_.cpp 内部的參數部分
+效果如下：
+
+![alt text](https://github.com/deltaRing/DCA1000-EVM-remote-collection/blob/main/%E6%95%88%E6%9E%9C%E5%9C%96%E5%B1%95%E7%A4%BA.jpg?raw=true)
