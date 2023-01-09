@@ -35,4 +35,8 @@
 
 ![alt text](https://github.com/deltaRing/DCA1000-EVM-remote-collection/blob/main/%E9%80%A3%E6%8E%A5%E6%AA%A2%E6%B8%AC%E5%95%8F%E9%A1%8C.png?raw=true)
 
+4. 編譯大概率出現一堆radar_client 與雷達服務器的問題，請在對應的文件開頭與末尾加入：
+
+![alt text](https://github.com/deltaRing/DCA1000-EVM-remote-collection/blob/main/%E7%B7%A8%E8%AD%AF%E5%95%8F%E9%A1%8C.png?raw=true)
+
 其他問題待補充。
