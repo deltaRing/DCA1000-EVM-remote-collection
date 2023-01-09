@@ -16,3 +16,5 @@
 效果如下：
 
 ![alt text](https://github.com/deltaRing/DCA1000-EVM-remote-collection/blob/main/%E6%95%88%E6%9E%9C%E5%9C%96%E5%B1%95%E7%A4%BA.jpg?raw=true)
+
+後續開發Linux-ARM版本。
