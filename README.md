@@ -44,4 +44,6 @@
 
 ![alt text](https://github.com/deltaRing/DCA1000-EVM-remote-collection/blob/main/%E7%B7%A8%E8%AD%AF%E5%95%8F%E9%A1%8C.png?raw=true)
 
+5. 一旦沒能連接上雷達，内存佔用量會急劇上升。
+
 其他問題待補充。
