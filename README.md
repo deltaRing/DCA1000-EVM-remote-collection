@@ -26,6 +26,7 @@
 ![alt text](https://github.com/deltaRing/DCA1000-EVM-remote-collection/blob/main/%E6%95%88%E6%9E%9C%E5%9C%96%E5%B1%95%E7%A4%BA.jpg?raw=true)
 
 後續開發Linux-ARM版本。
+（2023年4月16日更新：已更新ARM版本。在Jetson TX1 通过测试，使用 Libserial）
 
 目前已知問題：
 1. UDP有可能丟包，這通常出現在電腦較卡的情況中
