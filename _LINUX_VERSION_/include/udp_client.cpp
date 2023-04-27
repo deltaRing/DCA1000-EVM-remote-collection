@@ -8,6 +8,7 @@ unsigned char cli_buff[_PACKAGE_SIZE_];
 bool port_ready = false;
 bool addr_ready = false;
 bool data_port_ready = false;
+std::string port_com;
 
 void checkStatus()
 {
@@ -155,7 +156,7 @@ void startRecord_local(std::string cfg, std::string save_path) //
     handshake_dca1000();
     
     // 链表数据定义
-	LIST_ * header = NULL;
+    LIST_ * header = NULL;
     header = list_init();
     unsigned int data_length = 0;
     data_record_dca1000(header, &data_length);
@@ -192,6 +193,7 @@ void ComInit(std::string port)
             ret = connect_com_port(port);
             if (ret == _COM_NORMAL_){
                 port_ready = true;
+		port_com = port;
                 cli_buff[0] = _SEND_HEADER_;
                 cli_buff[1] = _CLIENT_REPLY_COM_CON_SUC_;
                 replyCmd();
