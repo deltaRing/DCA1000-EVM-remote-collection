@@ -4,24 +4,70 @@ int serverSocket;
 SOCKADDR_IN server;
 SOCKADDR_IN client;
 unsigned char ser_buff[_PACKAGE_SIZE_];
+unsigned char ser_recv[_PACKAGE_SIZE_];
 bool serverCanStartSample = true;
+int _reply_ = 0;
 
-void build_udp_server() // ½¨Á¢UDP·þÎñ¶Ë
+void recv_queue() {
+	while (true) {
+		recv_cmd();
+		if (ser_recv[0] != _SEND_HEADER_) {
+			std::cout << "Anomaly Data Received" << std::endl;
+			continue; // anomaly buff
+		}
+
+		if (ser_recv[1] == _CLIENT_REPLY_STATUS_REPORT_) {
+			unsigned char COM = ser_recv[2];
+			unsigned char UDP = ser_recv[3];
+			unsigned char ADR = ser_recv[4];
+			if (UDP == _CLIENT_REPLY_UDP_CON_SUC_) {
+				std::cout << "DCA1000 è¿žæŽ¥æˆåŠŸ ";
+			}
+			else {
+				std::cout << "DCA1000 è¿žæŽ¥å¤±è´¥ ";
+			}
+			if (COM == _CLIENT_REPLY_COM_CON_SUC_) {
+				std::cout << "é›·è¾¾å¤©çº¿æ¿ è¿žæŽ¥æˆåŠŸ ";
+			}
+			else {
+				std::cout << "é›·è¾¾å¤©çº¿æ¿ è¿žæŽ¥å¤±è´¥ ";
+			}
+
+			if (ADR == _CLIENT_REPLY_UDP_ADR_SUC_) {
+				std::cout << "DCA1000 é…ç½®ç«¯å£ è¿žæŽ¥æˆåŠŸ" << std::endl;
+			}
+			else {
+				std::cout << "DCA1000 é…ç½®ç«¯å£ è¿žæŽ¥å¤±è´¥" << std::endl;
+			}
+		}
+		else if (ser_recv[1] == _CLIENT_REPLY_TEST_CON_) {
+			std::cout << "é“¾æŽ¥æˆåŠŸ" << std::endl;
+		}
+		else if (ser_recv[1] == _CLIENT_REPLY_OK_) {
+			std::cout << "å¼€å§‹é‡‡é›†" << std::endl;
+		}
+		else if (ser_recv[1] == _CLIENT_REPLY_RECORD_OVER_) {
+			std::cout << "é‡‡é›†å®Œæˆ" << std::endl;
+		}
+	}
+}
+
+void build_udp_server() // å»ºç«‹UDPæœåŠ¡ç«¯
 {
-	WSADATA wsadata;//wsa ¼´windows socket async Òì²½Ì×½Ó×Ö
+	WSADATA wsadata;//wsa å³windows socket async å¼‚æ­¥å¥—æŽ¥å­—
 	if (0 != WSAStartup(MAKEWORD(2, 2), &wsadata)) {
-		printf("Ì×½Ó×ÖÎ´´ò¿ª\n");
+		printf("å¥—æŽ¥å­—æœªæ‰“å¼€\n");
 		WSACleanup();
 		exit(1);
 	}
 	else
 	{
-		printf("ÒÑ´ò¿ªÌ×½Ó×Ö\n");
+		printf("å·²æ‰“å¼€å¥—æŽ¥å­—\n");
 	}
 	serverCanStartSample = true;
-	//½¨Á¢Ò»¸öÊý¾Ý±¨ÀàÐÍµÄUDPÌ×½Ó×Ö  ******************//
-	serverSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP); //ÅäÖÃÄ£Ê½£¬
-	//ÉèÖÃ·þÎñÆ÷µØÖ·addrSrvºÍ¼àÌý¶Ë¿Ú
+	//å»ºç«‹ä¸€ä¸ªæ•°æ®æŠ¥ç±»åž‹çš„UDPå¥—æŽ¥å­—  ******************//
+	serverSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP); //é…ç½®æ¨¡å¼ï¼Œ
+	//è®¾ç½®æœåŠ¡å™¨åœ°å€addrSrvå’Œç›‘å¬ç«¯å£
 	server.sin_addr.S_un.S_addr = inet_addr(_SERVER_IP_);
 	server.sin_family = AF_INET;
 	server.sin_port = htons(_SERVER_PORT_);
@@ -39,100 +85,34 @@ void build_udp_server() // ½¨Á¢UDP·þÎñ¶Ë
 	}
 }
 
-void close_udp_server() // ¹Ø±ÕUDP·þÎñÆ÷¶Ë
+void close_udp_server() // å…³é—­UDPæœåŠ¡å™¨ç«¯
 {
 	closesocket(serverSocket);
 }
 
-void wait_sample_complete() {
-	while (true) {
-		recv_cmd();
-		if (check_cmd(_CLIENT_REPLY_RECORD_OVER_)) {
-			std::cout << "Client is Ready Now" << std::endl;
-			break;
-		}
-		if (check_cmd(_CLIENT_REPLY_COM_ERR_)) {
-			std::cout << "Client: Com Write Failure Need Re-capture" << std::endl;
-			break;
-		}
-	}
-	// serverCanStartSample = true;
-}
-
-int check_connection() // ¼ì²âÁ¬½Ó
+int check_connection() // æ£€æµ‹è¿žæŽ¥
 {
 	memset(ser_buff, 0, _PACKAGE_SIZE_);
 	ser_buff[0] = _SEND_HEADER_;
 	ser_buff[1] = _SERVER_CHECK_STATUS_;
 
 	bool send_result = send_cmd();
-	recv_cmd();
-
-	if (send_result) {
-		if (!check_cmd(_CLIENT_REPLY_STATUS_REPORT_)) {
-			std::cout << "»Ø¸´Ê§°Ü»òÕß¶ª°üÁË" << std::endl;
-			return _SERVER_RECV_ERROR_;
-		}
-		else
-		{
-			unsigned char COM = ser_buff[2];
-			unsigned char UDP = ser_buff[3];
-			unsigned char ADR = ser_buff[4];
-			if (UDP == _CLIENT_REPLY_UDP_CON_SUC_) {
-				std::cout << "DCA1000 Á¬½Ó³É¹¦ ";
-			}
-			else {
-				std::cout << "DCA1000 Á¬½ÓÊ§°Ü ";
-			}
-
-			if (COM == _CLIENT_REPLY_COM_CON_SUC_) {
-				std::cout << "À×´ïÌìÏß°å Á¬½Ó³É¹¦ ";
-			}
-			else {
-				std::cout << "À×´ïÌìÏß°å Á¬½ÓÊ§°Ü ";
-			}
-
-			if (ADR == _CLIENT_REPLY_UDP_ADR_SUC_) {
-				std::cout << "DCA1000 ÅäÖÃ¶Ë¿Ú Á¬½Ó³É¹¦" << std::endl;
-			}
-			else {
-				std::cout << "DCA1000 ÅäÖÃ¶Ë¿Ú Á¬½ÓÊ§°Ü" << std::endl;
-			}
-		}
-	}
-	else {
-		return _SERVER_SEND_ERROR_;
-	}
-
+	
 	return _SERVER_SEND_OK_;
 }
 
-int test_connection() // ²âÊÔÁ¬½Ó
+int test_connection() // æµ‹è¯•è¿žæŽ¥
 {
 	memset(ser_buff, 0, _PACKAGE_SIZE_);
 	ser_buff[0] = _SEND_HEADER_;
 	ser_buff[1] = _SERVER_TEST_CON_;
 
 	bool send_result = send_cmd();
-	recv_cmd();
-
-	if (send_result) {
-		if (!check_cmd(_CLIENT_REPLY_TEST_CON_)) {
-			std::cout << "Á´½ÓÊ§°Ü" << std::endl;
-			return _SERVER_RECV_ERROR_;
-		}
-		else {
-			std::cout << "Á´½Ó³É¹¦" << std::endl;
-		}
-	}
-	else {
-		return _SERVER_SEND_ERROR_;
-	}
 
 	return _SERVER_SEND_OK_;
 }
 
-int start_collection() // ¿ªÊ¼²É¼¯
+int start_collection() // å¼€å§‹é‡‡é›†
 {
 /*	if (!serverCanStartSample)
 		return _SERVER_NOT_READY_;
@@ -143,34 +123,11 @@ int start_collection() // ¿ªÊ¼²É¼¯
 	ser_buff[1] = _SEND_START_RECORD_;
 
 	bool send_result = send_cmd();
-	recv_cmd();
-	if (send_result) {
-		if (!check_cmd(_CLIENT_REPLY_OK_)) {
-			// serverCanStartSample = true;
-			return _SERVER_RECV_ERROR_;
-		}
-		else
-		{
-			std::cout << "¿ªÊ¼²É¼¯" << std::endl;
-		}
-	}
-	else {
-		return _SERVER_SEND_ERROR_;
-	}
-
-	recv_cmd();
-	if (check_cmd(_CLIENT_REPLY_RECORD_OVER_)) {
-		std::cout << "²É¼¯Íê³É" << std::endl;
-	}
-	else {
-		std::cout << "²É¼¯Ê§°Ü" << std::endl;
-		return _SERVER_RECV_ERROR_;
-	}
 
 	return _SERVER_SEND_OK_;
 }
 
-// ÊäÈë£ºClient¿Í»§¶Ë clientSocket¿Í»§¶Ë 
+// è¾“å…¥ï¼šClientå®¢æˆ·ç«¯ clientSocketå®¢æˆ·ç«¯ 
 bool send_cmd() {
 	int t = sendto(serverSocket, (char *)ser_buff,
 		_PACKAGE_SIZE_, 0,
@@ -182,15 +139,15 @@ bool send_cmd() {
 }
 
 bool check_cmd(unsigned char cmd_return) {
-	if (ser_buff[0] != _SEND_HEADER_) return false;
-	if (ser_buff[1] == cmd_return) return true;
+	if (ser_recv[0] != _SEND_HEADER_) return false;
+	if (ser_recv[1] == cmd_return) return true;
 	return false;
 }
 
 bool recv_cmd() {
 	int len = sizeof(SOCKADDR_IN);
-	memset(ser_buff, 0, _PACKAGE_SIZE_);
-	int t = recvfrom(serverSocket, (char *)ser_buff,
+	memset(ser_recv, 0, _PACKAGE_SIZE_);
+	int t = recvfrom(serverSocket, (char *)ser_recv,
 		_PACKAGE_SIZE_, 0,
 		(SOCKADDR *)&server, &len);
 	if (t < 0)
@@ -201,3 +158,4 @@ bool recv_cmd() {
 void print_cmd(const char * info) {
 	std::cout << info << std::endl;
 }
+
