@@ -16,6 +16,7 @@ bool DataSampleIsTrigger = false;
 extern bool port_ready;
 extern bool addr_ready;
 extern bool data_port_ready;
+extern std::string port_com;
 
 int connect_com_port(std::string port){
     try{
@@ -55,6 +56,13 @@ std::string ReadPortLD(){
 }
 
 bool WriteCFGFile(std::string cfg_path){
+    if (port_ready){ // 防止写入不了串口
+    	close_port();
+	usleep(1000);
+	int res = connect_com_port(port_com);
+	if (res != _COM_NORMAL_) return false;
+    }
+	
     std::ifstream filestream(cfg_path.c_str(), ios::in | ios::binary);
     //判断文件是否正常打开
     if (!filestream) {
