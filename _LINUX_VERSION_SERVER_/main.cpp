@@ -1,3 +1,4 @@
+#include <thread>
 #include <iostream>
 #include "server_windows_version.h"
 
@@ -6,6 +7,8 @@ int main()
     std::cout << "Beta Version of Win Server!\n";
 
 	build_udp_server();
+	std::thread recv_thread = std::thread(recv_queue);
+	recv_thread.detach();
 	// Server Behavior
 	char key = 'a';
 	while (key != 'q' || key != 'Q') {
