@@ -11,14 +11,15 @@
 #include "udp_define.h"
 #include <thread>
 
-void build_udp_server(); // ½¨Á¢UDP·şÎñ¶Ë
-void close_udp_server(); // ¹Ø±ÕUDP·şÎñÆ÷¶Ë
-int start_collection(); // ¿ªÊ¼²É¼¯
-int check_connection(); // ¼ì²âÁ¬½Ó
-int test_connection(); // ²âÊÔÁ¬½Ó
-bool send_cmd(); // ·¢ËÍÃüÁî
-bool recv_cmd(); // ½ÓÊÜÃüÁî ·µ»Ø£º½ÓÊÕµ½µÄÊı¾İ³¤¶È
+void recv_queue();
+void build_udp_server(); // å»ºç«‹UDPæœåŠ¡ç«¯
+void close_udp_server(); // å…³é—­UDPæœåŠ¡å™¨ç«¯
+int start_collection(); // å¼€å§‹é‡‡é›†
+int check_connection(); // æ£€æµ‹è¿æ¥
+int test_connection(); // æµ‹è¯•è¿æ¥
+bool send_cmd(); // å‘é€å‘½ä»¤
+bool recv_cmd(); // æ¥å—å‘½ä»¤ è¿”å›ï¼šæ¥æ”¶åˆ°çš„æ•°æ®é•¿åº¦
 bool check_cmd(unsigned char cmd_return);
-void print_cmd(const char * info); // ´òÓ¡ÃüÁî
+void print_cmd(const char * info); // æ‰“å°å‘½ä»¤
 
 #endif
